@@ -1,1 +1,1 @@
-# RMQ
+# Rabbit MQ
