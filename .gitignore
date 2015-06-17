@@ -1,3 +1,5 @@
 Out/
 RabbitMQ.v11.suo
 packages/RabbitMQ.Client.3.4.3/
+Source/RMQ.Consumer/obj/
+Source/RMQ.Producer/obj/
