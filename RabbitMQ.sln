@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQ.Producer", "Source\RMQ.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQ.Consumer", "Source\RMQ.Consumer\RMQ.Consumer.csproj", "{52A7AC78-74B8-40EE-A868-1AA51CB5F1FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQ.Core", "Source\RMQ.Core\RMQ.Core.csproj", "{82F2BE6A-6B2B-4626-8C06-01DE7E295C42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{52A7AC78-74B8-40EE-A868-1AA51CB5F1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52A7AC78-74B8-40EE-A868-1AA51CB5F1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52A7AC78-74B8-40EE-A868-1AA51CB5F1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F2BE6A-6B2B-4626-8C06-01DE7E295C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F2BE6A-6B2B-4626-8C06-01DE7E295C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F2BE6A-6B2B-4626-8C06-01DE7E295C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F2BE6A-6B2B-4626-8C06-01DE7E295C42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

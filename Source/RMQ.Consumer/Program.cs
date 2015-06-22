@@ -1,56 +1,39 @@
 ﻿using System;
-using System.Text;
 
 using RMQ.Consumer.Properties;
+using RMQ.Core;
+using RMQ.Core.Extensions;
 
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 
 
 namespace RMQ.Consumer
 {
     internal class Program
     {
-        private static QueueingBasicConsumer CreateConsumer(IModel channel)
-        {
-            var consumer = new QueueingBasicConsumer(channel);
-            channel.BasicConsume(Settings.Default.QueueName, true, consumer);
-
-            return consumer;
-        }
-
-
         private static void Main(string[] args)
         {
-            var connectionFactory = new ConnectionFactory
-            {
-                HostName = Settings.Default.HostName
-            };
+            string hostName = Settings.Default.HostName;
+            string queueName = Settings.Default.QueueName;
 
-            using (IConnection connection = connectionFactory.CreateConnection())
+            using (var queue = new DurableQueue(hostName, queueName))
             {
-                using (IModel channel = connection.CreateModel())
+                IModel channel = queue.GetChannel();
+                QueueingBasicConsumer consumer = channel.CreateConsumerWithAck(queueName);
+
+                Console.WriteLine("-> Waiting for messages. To exit press CTRL+C");
+
+                while (true)
                 {
-                    channel.QueueDeclare(Settings.Default.QueueName, false, false, false, null);
-
-                    QueueingBasicConsumer consumer = CreateConsumer(channel);
-
-                    Console.WriteLine("-> Waiting for messages. To exit press CTRL+C");
-                    while (true)
-                    {
-                        ReceiveMessage(consumer);
-                    }
+                    ReceiveMessage(consumer, channel);
                 }
             }
         }
 
 
-        private static void ReceiveMessage(QueueingBasicConsumer consumer)
+        private static void ReceiveMessage(QueueingBasicConsumer consumer, IModel channel)
         {
-            BasicDeliverEventArgs deliverEventArgs = consumer.Queue.Dequeue();
-
-            byte[] body = deliverEventArgs.Body;
-            string message = Encoding.UTF8.GetString(body);
+            Message message = channel.ReceiveNextMessageWithAck(consumer);
 
             Console.WriteLine("Received -> {0}", message);
         }

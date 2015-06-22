@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Text;
 
+using RMQ.Core;
+using RMQ.Core.Extensions;
 using RMQ.Producer.Properties;
 
 using RabbitMQ.Client;
@@ -12,36 +13,30 @@ namespace RMQ.Producer
     {
         private static void Main(string[] args)
         {
-            var connectionFactory = new ConnectionFactory
-            {
-                HostName = Settings.Default.HostName
-            };
+            string hostName = Settings.Default.HostName;
+            string queueName = Settings.Default.QueueName;
 
-            using (IConnection connection = connectionFactory.CreateConnection())
+            using (var queue = new DurableQueue(hostName, queueName))
             {
-                using (IModel channel = connection.CreateModel())
+                IModel channel = queue.GetChannel();
+
+                Console.WriteLine("-> Waiting for send messages. To exit press CTRL+C");
+
+                string line;
+                while ((line = Console.ReadLine()) != null)
                 {
-                    channel.QueueDeclare(Settings.Default.QueueName, false, false, false, null);
-
-                    Console.WriteLine("-> Waiting for send messages. To exit press CTRL+C");
-
-                    string line;
-                    while ((line = Console.ReadLine()) != null)
-                    {
-                        SendMessage(line, channel);
-                    }
+                    SendMessage(line, channel, queueName);
                 }
             }
         }
 
 
-        private static void SendMessage(string line, IModel channel)
+        private static void SendMessage(string text, IModel channel, string queueName)
         {
-            byte[] body = Encoding.UTF8.GetBytes(line);
+            var message = new Message(text);
+            channel.SendPersistentMessage(queueName, message);
 
-            channel.BasicPublish("", Settings.Default.QueueName, null, body);
-
-            Console.WriteLine("Sent -> {0}", line);
+            Console.WriteLine("Sent -> {0}", message);
         }
     }
 }

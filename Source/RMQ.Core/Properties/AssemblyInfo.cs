@@ -7,10 +7,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("RMQ.Consumer")]
+[assembly: AssemblyTitle("RMQ.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("RMQ.Consumer")]
+[assembly: AssemblyProduct("RMQ.Core")]
 [assembly: AssemblyCopyright("Copyright © 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("085091a4-91d5-4a29-9fbd-fbdd1d34db18")]
+[assembly: Guid("1372c7c9-7d76-4baf-85d7-2e09a545d593")]
 
 // Version information for an assembly consists of the following four values:
 //
