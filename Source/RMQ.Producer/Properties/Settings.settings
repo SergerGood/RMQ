@@ -8,5 +8,8 @@
     <Setting Name="HostName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">localhost</Value>
     </Setting>
+    <Setting Name="ExchangeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">exchange</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

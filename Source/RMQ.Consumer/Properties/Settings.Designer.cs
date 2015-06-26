@@ -40,5 +40,14 @@ namespace RMQ.Consumer.Properties {
                 return ((string)(this["HostName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("exchange")]
+        public string ExchangeName {
+            get {
+                return ((string)(this["ExchangeName"]));
+            }
+        }
     }
 }

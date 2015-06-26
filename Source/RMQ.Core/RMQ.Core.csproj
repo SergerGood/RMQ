@@ -44,10 +44,12 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Channel.cs" />
     <Compile Include="DurableQueue.cs" />
     <Compile Include="Extensions\EncodingExtension.cs" />
-    <Compile Include="Extensions\MessageSerializer.cs" />
+    <Compile Include="FanoutExchange.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="MessageSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ChannelExtension.cs" />
   </ItemGroup>
