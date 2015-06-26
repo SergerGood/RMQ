@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Channel.cs" />
+    <Compile Include="ConsoleCommands\CommandExecutor.cs" />
+    <Compile Include="ConsoleCommands\ConsoleCommand.cs" />
     <Compile Include="DurableQueue.cs" />
     <Compile Include="Extensions\EncodingExtension.cs" />
     <Compile Include="FanoutExchange.cs" />

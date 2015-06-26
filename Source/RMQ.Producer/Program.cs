@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using RMQ.Core;
+using RMQ.Core.ConsoleCommands;
 using RMQ.Core.Extensions;
 using RMQ.Producer.Properties;
 
@@ -15,9 +17,16 @@ namespace RMQ.Producer
         private static readonly string hostName = Settings.Default.HostName;
         private static readonly string queueName = Settings.Default.QueueName;
 
+        private static readonly List<ConsoleCommand> commands = new List<ConsoleCommand>
+        {
+            new ConsoleCommand { Argument = "/exchange", Default = true, Action = CreateFanoutExchange },
+            new ConsoleCommand { Argument = "/queue", Action = CreateDurableQueue }
+        };
+
         private static void Main(string[] args)
         {
-            CreateFanoutExchange();
+            var executor = new CommandExecutor(commands, args);
+            executor.Process();
         }
 
         private static void CreateDurableQueue()

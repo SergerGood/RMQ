@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using RMQ.Consumer.Properties;
 using RMQ.Core;
+using RMQ.Core.ConsoleCommands;
 using RMQ.Core.Extensions;
 
 using RabbitMQ.Client;
@@ -15,10 +17,17 @@ namespace RMQ.Consumer
         private static readonly string queueName = Settings.Default.QueueName;
         private static readonly string exchangeName = Settings.Default.ExchangeName;
 
+        private static readonly List<ConsoleCommand> commands = new List<ConsoleCommand>
+        {
+            new ConsoleCommand { Argument = "/exchange", Default = true, Action = CreateFanoutExchange },
+            new ConsoleCommand { Argument = "/queue", Action = CreateDurableQueue }
+        };
+
 
         private static void Main(string[] args)
         {
-            CreatFanoutExchange();
+            var executor = new CommandExecutor(commands, args);
+            executor.Process();
         }
 
 
@@ -39,7 +48,7 @@ namespace RMQ.Consumer
         }
 
 
-        private static void CreatFanoutExchange()
+        private static void CreateFanoutExchange()
         {
             using (var queue = new FanoutExchange(hostName, exchangeName))
             {

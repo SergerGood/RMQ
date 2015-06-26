@@ -4,3 +4,4 @@ packages/RabbitMQ.Client.3.4.3/
 Source/RMQ.Consumer/obj/
 Source/RMQ.Producer/obj/
 Source/RMQ.Core/obj/
+*.user
