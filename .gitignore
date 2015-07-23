@@ -5,3 +5,7 @@ Source/RMQ.Consumer/obj/
 Source/RMQ.Producer/obj/
 Source/RMQ.Core/obj/
 *.user
+Source/RMQ.Contract/obj/
+Source/RMQ.Service/obj/
+packages/Nelibur.3.1.6/
+packages/Nelibur.Sword.3.1.6/
