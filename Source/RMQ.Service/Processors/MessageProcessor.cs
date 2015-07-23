@@ -11,6 +11,7 @@ namespace RMQ.Service.Processors
     {
         public void PostOneWay(SendMessageCommand request)
         {
+            Console.WriteLine(request.Message);
         }
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQ.Service", "Source\RMQ.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQ.Contract", "Source\RMQ.Contract\RMQ.Contract.csproj", "{561C8C87-24E0-4DB5-BAF7-AD08AF474E09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQ.Client", "Source\RMQ.Client\RMQ.Client.csproj", "{CFC71B77-87DA-4AA5-AC2A-DC27AA9590F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{561C8C87-24E0-4DB5-BAF7-AD08AF474E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{561C8C87-24E0-4DB5-BAF7-AD08AF474E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{561C8C87-24E0-4DB5-BAF7-AD08AF474E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC71B77-87DA-4AA5-AC2A-DC27AA9590F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC71B77-87DA-4AA5-AC2A-DC27AA9590F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC71B77-87DA-4AA5-AC2A-DC27AA9590F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC71B77-87DA-4AA5-AC2A-DC27AA9590F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

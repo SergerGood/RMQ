@@ -19,7 +19,7 @@ namespace RMQ.Service
             var service = new WebServiceHost(typeof(JsonServicePerCall));
             service.Open();
 
-            Console.WriteLine("-> Waiting for send messages. To exit press CTRL+C");
+            Console.WriteLine("-> Waiting for messages. To exit press CTRL+C");
 
             string line;
             while ((line = Console.ReadLine()) != null)
