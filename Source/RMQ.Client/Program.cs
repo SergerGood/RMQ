@@ -14,14 +14,12 @@ namespace RMQ.Client
         {
             var client = new JsonServiceClient(Settings.Default.ServiceAddress);
 
-            client.Post(new SendMessageCommand { Message = "Hello" });
-
             Console.WriteLine("-> Waiting for send messages. To exit press CTRL+C");
 
             string line;
             while ((line = Console.ReadLine()) != null)
             {
-
+                client.Post(new SendMessageCommand { Message = line });
             }
         }
     }

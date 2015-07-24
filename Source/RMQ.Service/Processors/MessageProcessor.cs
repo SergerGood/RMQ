@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Nelibur.ServiceModel.Services.Operations;
 
-using Nelibur.ServiceModel.Services.Operations;
+using RabbitMQ.Client;
 
 using RMQ.Contract.Commands;
+using RMQ.Core;
+using RMQ.Core.Extensions;
 
 
 namespace RMQ.Service.Processors
@@ -11,7 +13,13 @@ namespace RMQ.Service.Processors
     {
         public void PostOneWay(SendMessageCommand request)
         {
-            Console.WriteLine(request.Message);
+            using (var queue = new DurableQueue("localhost", "hello"))
+            {
+                IModel channel = queue.GetChannel();
+                var message = new Message(request.Message);
+
+                channel.SendPersistentMessageToQueue("hello", message);
+            }
         }
     }
 }
