@@ -3,6 +3,7 @@
 
 namespace RMQ.Tests
 {
+    [TestCaseOrderer("RMQ.Tests.Sample.TestCaseOrderer", "RMQ.Tests")]
     public class SimpleTests
     {
         [Fact]

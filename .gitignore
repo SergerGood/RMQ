@@ -18,3 +18,4 @@ packages/xunit.extensibility.core.2.0.0/
 packages/xunit.abstractions.2.0.0/
 packages/xunit.assert.2.0.0/
 packages/xunit.runner.visualstudio.2.0.0/
+packages/xunit.extensibility.execution.2.0.0/
