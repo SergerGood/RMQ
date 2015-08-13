@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xunit;
+﻿using Xunit;
 
 
 namespace RMQ.Tests.Sample
@@ -30,22 +27,6 @@ namespace RMQ.Tests.Sample
             var count = fixture.Collection.Count;
 
             Assert.Equal(5, count);
-        }
-    }
-
-
-    public class ListFixtures : IDisposable
-    {
-        public ListFixtures()
-        {
-            Collection = new List<int> { 1, 2, 3 };
-        }
-
-        public List<int> Collection { get; }
-
-        public void Dispose()
-        {
-            Collection.Clear();
         }
     }
 }
