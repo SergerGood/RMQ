@@ -1,4 +1,5 @@
 ﻿using Xunit;
+using Xunit.Abstractions;
 
 
 namespace RMQ.Tests
@@ -6,9 +7,17 @@ namespace RMQ.Tests
     [TestCaseOrderer("RMQ.Tests.Sample.TestCaseOrderer", "RMQ.Tests")]
     public class SimpleTests
     {
+        private readonly ITestOutputHelper output;
+
+        public SimpleTests(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+
         [Fact]
         public void PassingTest()
         {
+            output.WriteLine("This is output text!");
             Assert.Equal(4, Add(2, 2));
         }
 
